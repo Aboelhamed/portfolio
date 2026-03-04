@@ -209,8 +209,53 @@ nav {
 
 .hero-text h1 {
     font-size: 4rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    line-height: 0.95;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.hero-intro {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-name {
+    font-weight: 800;
+    display: block;
+    letter-spacing: -3px;
+    line-height: 1;
+}
+
+.hero-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin: 1rem 0 2rem;
+    font-family: var(--font-heading);
+    min-height: 2.2rem;
+}
+
+.typewriter-cursor {
+    font-weight: 300;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .hero-text p {
