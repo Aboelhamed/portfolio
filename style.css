@@ -297,12 +297,12 @@ nav {
 
 /* Section Title */
 .section-header {
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
 }
 
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
@@ -311,15 +311,16 @@ nav {
     letter-spacing: 3px;
     font-size: 0.8rem;
     font-weight: 700;
+    margin-bottom: 0.5rem;
     display: block;
-    margin-bottom: 1rem;
+}
+
+/* Section Shared Styles */
+section {
+    padding: 100px 0;
 }
 
 /* About Section */
-.about {
-    padding: 150px 0;
-}
-
 .grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -372,10 +373,6 @@ nav {
 }
 
 /* Skills Section */
-.skills {
-    padding: 150px 0;
-}
-
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -423,10 +420,6 @@ nav {
 }
 
 /* Projects Section */
-.projects {
-    padding: 150px 0;
-}
-
 .project-list {
     display: flex;
     flex-direction: column;
@@ -490,10 +483,6 @@ nav {
 }
 
 /* Contact Section */
-.contact {
-    padding: 150px 0 200px;
-}
-
 .contact-wrapper {
     background: rgba(255, 255, 255, 0.02);
     padding: 5rem;
