@@ -1,16 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Cursor Glow following mouse (background blob)
-    const blob = document.querySelector('.cursor-blob');
-    if (blob) {
-        document.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            blob.style.left = `${clientX}px`;
-            blob.style.top = `${clientY}px`;
-        });
-    }
 
-    // Scroll Header Effect
+
+    // Scroll Header Effect & Parallax
     const header = document.querySelector('header');
+    const heroImage = document.querySelector('.image-wrapper');
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -125,4 +119,122 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(type, 1000); // Initial delay
     }
+
+    // Particle background animation
+    initParticles();
 });
+
+function initParticles() {
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const particleCount = 80;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+            this.opacity = Math.random() * 0.3 + 0.1;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Wrapping
+            if (this.x < 0) this.x = canvas.width;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.y < 0) this.y = canvas.height;
+            if (this.y > canvas.height) this.y = 0;
+        }
+
+        draw() {
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function drawCrystals() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 150) {
+                    // Look for a third particle to form a triangle
+                    for (let k = j + 1; k < particles.length; k++) {
+                        const dx2 = particles[i].x - particles[k].x;
+                        const dy2 = particles[i].y - particles[k].y;
+                        const dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+
+                        const dx3 = particles[j].x - particles[k].x;
+                        const dy3 = particles[j].y - particles[k].y;
+                        const dist3 = Math.sqrt(dx3 * dx3 + dy3 * dy3);
+
+                        // If all three particles are within range, fill the triangle
+                        if (dist2 < 150 && dist3 < 150) {
+                            // Constant subtle alpha instead of mouse interaction
+                            const alpha = 0.04;
+
+                            ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.lineTo(particles[k].x, particles[k].y);
+                            ctx.closePath();
+                            ctx.fill();
+
+                            // Draw thin edges
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.6})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawCrystals();
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+        resize();
+        createParticles();
+    });
+
+    resize();
+    createParticles();
+    animate();
+}

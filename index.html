@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aboelhamed Elsayed | Professional Web Developer</title>
+    <title>Aboelhamed Elsayed portfolio</title>
     <meta name="description"
         content="Aboelhamed Elsayed is a dedicated Computer Science student and Web Developer specializing in ASP.NET MVC, C#, and modern frontend experiences. Discover his projects and technical expertise.">
     <meta name="keywords"
@@ -36,10 +36,12 @@
 </head>
 
 <body>
-    <div class="cursor-blob"></div>
+    <div class="bg-effects">
+        <canvas id="particles-canvas"></canvas>
+    </div>
     <header>
         <nav class="container">
-            <div class="logo">HMD<span>.</span></div>
+            <div class="logo"><span><</span>HMD<span>/></span></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -59,8 +61,8 @@
             <div class="container hero-content">
                 <div class="hero-text">
                     <span class="badge">Available for Work</span>
-                    <h1><span class="hero-intro">Hello, I'm</span> <span class="hero-name">Aboelhamed <span
-                                class="gradient-text">Elsayed</span></span></h1>
+                    <h1><span class="hero-intro">I'm</span> <span class="hero-name">Aboelhamed Elsayed<span
+                                class="gradient-text"></span></span></h1>
                     <div class="hero-title">
                         <span class="typewriter-text"></span><span class="typewriter-cursor">|</span>
                     </div>
@@ -168,34 +170,24 @@
                     <h2 class="section-title">Featured Works</h2>
                 </div>
                 <div class="project-list">
-                    <!-- Project 1 -->
+                    <!-- Project: Fresh Land -->
                     <div class="project-card">
                         <div class="project-img">
-                            <img src="images/Screenshot 2026-02-25 224758.png"
-                                alt="Pharmacy Management System Dashboard">
-                        </div>
-                        <div class="project-info">
-                            <h3>Pharmacy Management</h3>
-                            <p>An enterprise-level medical inventory system built with ASP.NET MVC 8. Focuses on
-                                pharmaceutical stock tracking, secure drug dispensing, and comprehensive administrative
-                                reporting.</p>
-                            <div class="project-tags">
-                                <span>ASP.NET MVC 8</span>
-                                <span>SQL Server</span>
-                                <span>Entity Framework</span>
-                                <span>Auth System</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Aboelhamed" target="_blank" class="github-link"><i
-                                        class="fab fa-github"></i> View Repository</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card reversed">
-                        <div class="project-img">
                             <img src="images/1771663119989.jfif" alt="Fresh Land Product Showcase">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <a href="https://freshland.netlify.app/" target="_blank"
+                                        class="overlay-btn live-demo" aria-label="Live Demo">
+                                        <i class="fas fa-play"></i>
+                                        <span>Live Demo</span>
+                                    </a>
+                                    <a href="https://github.com/Aboelhamed/FreshLand-Project" target="_blank"
+                                        class="overlay-btn source-code" aria-label="Source Code">
+                                        <i class="fab fa-github"></i>
+                                        <span>Source Code</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="project-info">
                             <h3>Fresh Land</h3>
@@ -207,6 +199,9 @@
                                 <span>Aesthetic Design</span>
                             </div>
                             <div class="project-links">
+                                <a href="https://freshland.netlify.app/" target="_blank" class="live-link"><i
+                                        class="fas fa-external-link-alt"></i>
+                                    Live Demo</a>
                                 <a href="https://github.com/Aboelhamed/FreshLand-Project" target="_blank"
                                     class="github-link"><i class="fab fa-github"></i> View Repository</a>
                             </div>
@@ -225,17 +220,44 @@
                 </div>
                 <div class="contact-wrapper">
                     <div class="contact-info">
-                        <p>Currently open to new opportunities and collaborations. If you have a project in mind or just
-                            want to discuss software engineering, feel free to reach out.</p>
-                        <ul class="contact-list">
-                            <li><i class="fas fa-envelope"></i> <a
-                                    href="mailto:aboelhamede5@gmail.com">aboelhamede5@gmail.com</a></li>
-                            <li><i class="fas fa-phone"></i> <a href="tel:+201114209095">+20 111 420 9095</a></li>
-                            <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/aboelhamed-elsayed/"
-                                    target="_blank">linkedin.com/in/aboelhamed</a></li>
-                            <li><i class="fab fa-github"></i> <a href="https://github.com/Aboelhamed"
-                                    target="_blank">github.com/Aboelhamed</a></li>
-                        </ul>
+                        <div class="contact-reel">
+                            <a href="mailto:aboelhamede5@gmail.com" class="reel-item">
+                                <div class="reel-icon"><i class="fas fa-envelope-open"></i></div>
+                                <div class="reel-content">
+                                    <span class="reel-tag">Primary Email</span>
+                                    <h3>aboelhamede5@gmail.com</h3>
+                                    <p>Drop an inquiry for collaborations</p>
+                                </div>
+                                <div class="reel-arrow"><i class="fas fa-arrow-right"></i></div>
+                            </a>
+                            <a href="https://linkedin.com/in/aboelhamed-elsayed/" target="_blank" class="reel-item">
+                                <div class="reel-icon"><i class="fab fa-linkedin-in"></i></div>
+                                <div class="reel-content">
+                                    <span class="reel-tag">Professional</span>
+                                    <h3>LinkedIn</h3>
+                                    <p>Network and experience</p>
+                                </div>
+                                <div class="reel-arrow"><i class="fas fa-arrow-right"></i></div>
+                            </a>
+                            <a href="https://github.com/Aboelhamed" target="_blank" class="reel-item">
+                                <div class="reel-icon"><i class="fab fa-github"></i></div>
+                                <div class="reel-content">
+                                    <span class="reel-tag">Development</span>
+                                    <h3>Github</h3>
+                                    <p>GitHub repositories</p>
+                                </div>
+                                <div class="reel-arrow"><i class="fas fa-arrow-right"></i></div>
+                            </a>
+                            <a href="https://wa.me/201114209095" target="_blank" class="reel-item">
+                                <div class="reel-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="reel-content">
+                                    <span class="reel-tag">Direct Line</span>
+                                    <h3>+20 111 420 9095</h3>
+                                    <p>Available for voice calls & WhatsApp</p>
+                                </div>
+                                <div class="reel-arrow"><i class="fas fa-arrow-right"></i></div>
+                            </a>
+                        </div>
                     </div>
                     <form class="contact-form">
                         <div class="form-group">
@@ -257,7 +279,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 Aboelhamed Elsayed. Focused on precision.</p>
+            <p>&copy; 2026 Aboelhamed Elsayed. All Rights Reserved.</p>
         </div>
     </footer>
 
